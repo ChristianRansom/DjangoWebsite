@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'projects',
     'blog',
     'users',
+    'social_django',
     #'hello_world',
 ]
 
@@ -67,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -138,3 +141,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
+
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "social_core.backends.github.GithubOAuth2",
+]
+SOCIAL_AUTH_GITHUB_KEY = "2f51a6dcd04d1572a8b1" #os.environ.get("SOCIAL_AUTH_GITHUB_KEY")
+SOCIAL_AUTH_GITHUB_SECRET = "29ee925782593d446c190414bd65b673017a2e61" #os.environ.get("SOCIAL_AUTH_GITHUB_SECRET")

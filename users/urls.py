@@ -5,4 +5,6 @@ urlpatterns = [
     url(r"^accounts/", include("django.contrib.auth.urls")),
     url(r"^dashboard/", dashboard, name="dashboard"),
     url(r"^register/", register, name="register"),
+    url(r"^oauth/", include("social_django.urls")),
+    url('', include('social_django.urls', namespace='social'))
 ]
