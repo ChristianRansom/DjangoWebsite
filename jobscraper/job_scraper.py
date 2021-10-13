@@ -23,8 +23,8 @@ def scrape_jobs(
         search_size=1,
         location="remote",):
     
-    indeed_url="https://in.indeed.com/jobs?q=" + job_search + "&l=" + location 
-    # indeed_url = "https://in.indeed.com/jobs?q="+job+"&l="+Location
+    indeed_url="https://in.indeed.com/jobs?q=" + job_search + "&l=" + location
+    print("Scraping here: " + indeed_url) 
     stop_words = set(stopwords.words('english'))
     whitelist = word_tokenize(whitelist.lower())
     blacklist = word_tokenize(blacklist.lower()) + list(stop_words)
@@ -34,21 +34,24 @@ def scrape_jobs(
     links = 0
     
     #Keep finding links until we've matched the search size
-    print("Getting links...")
     while links < search_size:
         page_number = page_number + 1
         page_url = indeed_url + "&sort=date&start=" + str(page_number)
-        print(page_url)
-        soup = html_code(page_url)
-        
-        if len(soup.find_all('a', class_="tapItem")) == 0:
+        proxy = generate_proxy() #generate new proxy for each page
+        page_html = get_html_code(page_url, proxy)
+        print("Getting page: " +  page_url)
+            
+        if len(page_html.find_all('a', class_="tapItem")) == 0:
             print("We got captcha blocked :(")
             break;
             
-        #Loop through pages and get links to each job page
-        for link in soup.find_all('a', class_="tapItem"):
-            soup = html_code("https://in.indeed.com" + link.get('href'))
-            text = text + get_text(soup, whitelist, blacklist)
+        #Loop through each job link on the page and add its text
+        for link in page_html.find_all('a', class_="tapItem"):
+            link_url = "https://in.indeed.com" + link.get('href')
+            link_html = get_html_code(link_url, proxy)
+            print("Adding text from link: " + link_url)
+            text = text + get_text(link_html, whitelist, blacklist)
+            links = links + 1
             if links >= search_size:
                 break;
 
@@ -57,6 +60,7 @@ def scrape_jobs(
 
 def generate_proxy():
     # Here I provide some proxies for not getting caught while scraping
+    print("generating proxy...")
     ua = generate_user_agent() # From here we generate a random user agent
     proxies = [] # Will contain proxies [ip, port]
 
@@ -78,7 +82,8 @@ def generate_proxy():
     # Choose a random proxy
     proxy_index = random.randint(0, len(proxies) - 1)
     proxy = proxies[proxy_index]
-
+    
+    print("requesting proxy")
     for n in range(1, 20):
         req = Request('http://icanhazip.com')
         req.set_proxy(proxy['ip'] + ':' + proxy['port'], 'http')
@@ -132,10 +137,8 @@ def generate_user_agent():
     return random.choice(user_agent_list)
 
 
-def getdata(url):
+def getdata(url, proxy):
     user_agent = generate_user_agent()
-    proxy = generate_proxy()
-    
     #spoof user agent
     headers= {'User-Agent': user_agent, "Accept-Language": "en-US, en;q=0.5"}
     r = requests.get(url, headers=headers, proxies=proxy)
@@ -144,11 +147,11 @@ def getdata(url):
     return r.text
 
 # Get Html code using parse
-def html_code(url):
+def get_html_code(url, proxy):
 
     # pass the url
     # into getdata function
-    htmldata = getdata(url)
+    htmldata = getdata(url, proxy)
     soup = BeautifulSoup(htmldata, 'html.parser')
 
     # return html code
@@ -157,7 +160,6 @@ def html_code(url):
 # filter job data using
 # find_all function
 def get_text(soup, whitelist, blacklist):
-    print("getting text")
     data_str = ""
     for item in soup.find_all("div", class_="jobsearch-jobDescriptionText"):
         data_str = data_str + item.get_text()
