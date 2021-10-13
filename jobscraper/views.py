@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from jobscraper.forms import JobScraperForm
-from django.urls import reverse
-
+from . import job_scraper as scrapper_script
 
 # Create your views here.
 def job_scraper(request):
@@ -9,7 +8,8 @@ def job_scraper(request):
         return render(
             request, 
             'job_scraper/job_scraper.html', 
-            {"form": JobScraperForm}
+            {"form": JobScraperForm,
+            }
         )
     elif request.method == "POST":
         form = JobScraperForm(request.POST)
@@ -19,13 +19,28 @@ def job_scraper(request):
             whitelist = form.cleaned_data['whitelist']
             blacklist = form.cleaned_data['blacklist']
             search_size = form.cleaned_data['search_size']
-            print("We got something: " + job_search)
             
-        return render(
-            request, 
-            'job_scraper/job_scraper.html', 
-            {"form": form}
+            scraped = scrapper_script.scrape_jobs(job_search, whitelist, blacklist, search_size, location)
+            #scraped_text = [i for i in scraped]
+            #print("scraped text: " + scraped)
+            
+            scraped = {"scraped": scraped}
+
+        
+            return render(
+                request, 
+                'job_scraper/job_scraper.html', 
+                {"form": form,
+                 "scraped": scraped,
+                 }
+            )
+        else:
+            return render(
+                request, 
+                'job_scraper/job_scraper.html', 
+                {"form": form}
         )
+    
 
 
 

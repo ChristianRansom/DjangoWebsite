@@ -6,7 +6,7 @@ class JobScraperForm(forms.Form):
         help_text='This field is required'
     )
     search_size = forms.IntegerField(
-        max_value=10,
+        max_value=500,
         help_text='This field is required'
     )
     location = forms.CharField(max_length=100, required=False) 
@@ -23,6 +23,9 @@ class JobScraperForm(forms.Form):
         if not job_search and not search_size:
             print("raising validation error!")
             raise forms.ValidationError('Please fill in the required fields')
+        
+        
+        
 #fields
 #Job search
 #Location

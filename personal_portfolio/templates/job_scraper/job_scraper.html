@@ -6,6 +6,8 @@
 <h2>Job scraper</h2>
 {% load widget_tweaks %}
 
+
+
 <form method="post" novalidate>
   {% csrf_token %}
 
@@ -36,6 +38,9 @@
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+{{ scraped.scraped }}
+
 
 <a href="{% url 'dashboard' %}">Back to dashboard</a>
 {% endblock %}
