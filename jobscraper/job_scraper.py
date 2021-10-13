@@ -12,7 +12,8 @@ from nltk.tokenize import word_tokenize
 # This is our visual library
 import pandas as pd 
 import nltk
-
+import random
+from urllib.request import Request, urlopen
 
 
 
@@ -28,39 +29,116 @@ def scrape_jobs(
     whitelist = word_tokenize(whitelist.lower())
     blacklist = word_tokenize(blacklist.lower()) + list(stop_words)
 
-    links = []
+    text = []
     page_number = 0
+    links = 0
     
     #Keep finding links until we've matched the search size
     print("Getting links...")
-    while len(links) < search_size:
+    while links < search_size:
         page_number = page_number + 1
         page_url = indeed_url + "&sort=date&start=" + str(page_number)
+        print(page_url)
         soup = html_code(page_url)
         
+        if len(soup.find_all('a', class_="tapItem")) == 0:
+            print("We got captcha blocked :(")
+            break;
+            
         #Loop through pages and get links to each job page
         for link in soup.find_all('a', class_="tapItem"):
-            links.append("https://in.indeed.com" + link.get('href'))
-            if len(links) >= search_size:
+            soup = html_code("https://in.indeed.com" + link.get('href'))
+            text = text + get_text(soup, whitelist, blacklist)
+            if links >= search_size:
                 break;
-
-    text = []
-    print("Getting text...")
-    for link in links:
-        print(link)
-        soup = html_code(link)
-        text = text + get_text(soup, whitelist, blacklist)
 
     return count_words(text)
 
+
+def generate_proxy():
+    # Here I provide some proxies for not getting caught while scraping
+    ua = generate_user_agent() # From here we generate a random user agent
+    proxies = [] # Will contain proxies [ip, port]
+
+    # Retrieve latest proxies
+    proxies_req = Request('https://www.sslproxies.org/')
+    proxies_req.add_header('User-Agent', ua)
+    proxies_doc = urlopen(proxies_req).read().decode('utf8')
+
+    soup = BeautifulSoup(proxies_doc, 'html.parser')
+    proxies_table = soup.find(id='list')
+
+    # Save proxies in the array
+    for row in proxies_table.tbody.find_all('tr'):
+        proxies.append({
+      'ip':   row.find_all('td')[0].string,
+      'port': row.find_all('td')[1].string
+    })
+
+    # Choose a random proxy
+    proxy_index = random.randint(0, len(proxies) - 1)
+    proxy = proxies[proxy_index]
+
+    for n in range(1, 20):
+        req = Request('http://icanhazip.com')
+        req.set_proxy(proxy['ip'] + ':' + proxy['port'], 'http')
+
+    # Every 10 requests, generate a new proxy
+    if n % 10 == 0:
+        proxy_index = random.randint(0, len(proxies) - 1)
+        proxy = proxies[proxy_index]
+
+    # Make the call
+    try:
+        my_ip = urlopen(req).read().decode('utf8')
+        print('#' + str(n) + ': ' + my_ip)
+    except: # If error, delete this proxy and find another one
+        del proxies[proxy_index]
+        print('Proxy ' + proxy['ip'] + ':' + proxy['port'] + ' deleted.')
+        proxy_index = random.randint(0, len(proxies) - 1)
+        proxy = proxies[proxy_index]
+    return proxy
+
 # Scrape the data
 # and get in string
-def getdata(url):
 
+def generate_user_agent():
+    user_agent_list = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36',
+        'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1)',
+        'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0)',
+        'Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)',
+        'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+        'Mozilla/5.0 (Windows NT 6.1; Win64; x64; Trident/7.0; rv:11.0) like Gecko',
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)',
+        'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)',
+        'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)'
+    ]
+    
+    return random.choice(user_agent_list)
+
+
+def getdata(url):
+    user_agent = generate_user_agent()
+    proxy = generate_proxy()
+    
     #spoof user agent
-    user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.143 Safari/537.36'
-    headers = {'User-Agent': user_agent}
-    r = requests.get(url, headers=headers)
+    headers= {'User-Agent': user_agent, "Accept-Language": "en-US, en;q=0.5"}
+    r = requests.get(url, headers=headers, proxies=proxy)
     #print("url request return: " + r.text)
 
     return r.text
