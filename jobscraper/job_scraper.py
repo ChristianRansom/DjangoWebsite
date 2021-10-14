@@ -60,7 +60,7 @@ def scrape_jobs(
 
 def generate_proxy():
     # Here I provide some proxies for not getting caught while scraping
-    print("generating proxy...")
+    print("Generating proxy")
     ua = generate_user_agent() # From here we generate a random user agent
     proxies = [] # Will contain proxies [ip, port]
 
@@ -83,7 +83,6 @@ def generate_proxy():
     proxy_index = random.randint(0, len(proxies) - 1)
     proxy = proxies[proxy_index]
     
-    print("requesting proxy")
     for n in range(1, 20):
         req = Request('http://icanhazip.com')
         req.set_proxy(proxy['ip'] + ':' + proxy['port'], 'http')
