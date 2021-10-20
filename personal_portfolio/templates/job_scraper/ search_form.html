@@ -1,0 +1,14 @@
+
+
+{% if form.is_bound %}
+	{% if field.errors %}
+		{% render_field field class="form-control is-invalid" %}
+		<div class="invalid-feedback">
+        	{{ error }}
+		</div>
+ 	{% else %}
+         {% render_field field class="form-control is-valid" %}
+	{% endif %}
+{% else %}
+     {% render_field field class="form-control" %}
+{% endif %}		

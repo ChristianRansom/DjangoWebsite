@@ -74,6 +74,7 @@ TEMPLATES = [
                 "social_django.context_processors.login_redirect",
             ],
         },
+
     },
 ]
 
@@ -127,7 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = 'C:/Users/chris/Desktop/Django/DjangoWebsite/projects/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,  'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'personal_portfolio/static')]
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "dashboard"
 

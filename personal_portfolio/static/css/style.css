@@ -1,0 +1,16 @@
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    red;
+    font-size: 15px;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+     color:    red;
+    font-size: 15px;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    red;
+    font-size: 15px;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    red;
+    font-size: 15px;
+}
