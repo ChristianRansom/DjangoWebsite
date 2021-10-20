@@ -3,15 +3,23 @@ from django import forms
 class JobScraperForm(forms.Form):
     job_search = forms.CharField(
         max_length=100,        
-        help_text='This field is required'
+        widget=forms.TextInput(attrs={'placeholder': 'Software Developer', 'class': '"col-md-5"'})
     )
+    location = forms.CharField(
+        max_length=200, 
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'San Fransisco', 'class': 'form-control'})
+    ) 
     search_size = forms.IntegerField(
         max_value=500,
-        help_text='This field is required'
+        widget=forms.TextInput(attrs={'placeholder': 'Search Size', 'class': 'form-control'})
     )
-    location = forms.CharField(max_length=100, required=False) 
-    whitelist = forms.CharField(widget=forms.Textarea(), required=False)
-    blacklist = forms.CharField(widget=forms.Textarea(), required=False)
+    whitelist = forms.CharField(
+        required=False, 
+        widget=forms.Textarea(attrs={'style': "width:100%;"}))
+    blacklist = forms.CharField(
+        required=False, 
+        widget=forms.Textarea(attrs={'style': "width:100%;"}))
 
     def clean(self):
         cleaned_data = super(JobScraperForm, self).clean()

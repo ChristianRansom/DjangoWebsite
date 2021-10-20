@@ -14,7 +14,7 @@ def job_scraper(request):
         )
     elif request.method == "POST":
         form = JobScraperForm(request.POST)
-        if form.is_valid():        
+        if form.is_valid():
             job_search = form.cleaned_data['job_search']
             location = form.cleaned_data['location']  
             whitelist = form.cleaned_data['whitelist']
