@@ -1,1 +1,1 @@
-from .defaults import *
+from personal_portfolio.settings.default import *
