@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from projects.models import Project
 
+
+
+
+
+
+
+
 def project_index(request):
-    projects = Project.objects.all()
+
     context = {
         'projects': projects
     }
@@ -11,8 +18,39 @@ def project_index(request):
 
 
 def project_detail(request, pk):
-    project = Project.objects.get(pk=pk)
     context = {
-        'project': project
+        'project': projects[pk]
     }
     return render(request, 'project_detail.html', context)
+
+
+
+projects = {
+    1:  {
+            'name': 'name',
+            'description': 'description',
+            'explanation': 'explanation',
+            'date': 'date',
+            'link': 'link',
+            'image': 'project1',
+            'skills': 'skills',
+        },
+    2:  {
+            'name': 'name',
+            'description': 'description',
+            'explanation': 'explanation',
+            'date': 'date',
+            'link': 'link',
+            'image': 'project2',
+            'skills': 'skills',
+        },
+    3:  {
+            'name': 'name',
+            'description': 'description',
+            'explanation': 'explanation',
+            'date': 'date',
+            'link': 'link',
+            'image': 'project3',
+            'skills': 'skills',
+        },
+    }
