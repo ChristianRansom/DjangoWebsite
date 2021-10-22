@@ -96,6 +96,7 @@ env.bak/
 venv.bak/
 
 personal_portfolio/static
+personal_portfolio/wsgi.py
 
 # Spyder project settings
 .spyderproject
