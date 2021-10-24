@@ -1,3 +1,7 @@
+<!doctype html>
+<html lang="en">
+
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -5,41 +9,175 @@
 <!--Chart js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+
+
 
 {%block scripts%}
 {%endblock scripts%}
 
+{% load static %}
+
 <title>ProductiveProgrammer</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-secondary ">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'dashboard' %}">Home</a>
+    	
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+			<li class="nav-item{% if '/dashboard/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                 <img src={% static "img/sitelogo.png" %} alt="" width="100">
+			  </a>
+            </li>
+			<li class="nav-item{% if '/projects/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
               <a class="nav-link" href="{% url 'project_index' %}">Projects</a>
             </li>
-            <li class="nav-item">
+			<li class="nav-item {% if '/blog/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
               <a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
             </li>
-            <li class="nav-item">
+			<li class="nav-item {% if '/jobscraper/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
               <a class="nav-link" href="{% url 'job_scraper' %}">Job Scraper</a>
             </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+			<div>
+		      <a href="https://github.com/ChristianRansom" class="me-4 text-reset">
+		        <i class="fab fa-github"></i>
+		      </a>
+		      <a href="https://dev.to/christianransom" class="me-4 text-reset">
+				<i class="fab fa-dev"></i>
+		      </a>
+		      <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
+		        <i class="fab fa-linkedin"></i>
+		      </a>
+		    </div>
+      		{% if user.is_authenticated %}
+			  <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
+			{% else %}
+			  <span class="glyphicon glyphicon-log-in"></span><a href="{% url 'login' %}">Login</a>
+			{% endif %}
+    	  </ul>
         </div>
     </div>
 
 </nav>
 
 <div class="container">
-	<h1>Welcome to Awesome Website</h1>
     {% block page_content %}
     {% endblock %}
 </div>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted"> 
+    <!-- Section: Header-->
+  <section
+    class="d-flex justify-content-center p-4 border-bottom"
+  >
+    <div class="me-5 d-none d-lg-block">
+      <span>Powered by Digital Ocean, Gunicorn, Nginx, Ubuntu, Django, Postgres, and more.</span>
+    </div>
+
+  </section>
+  
+  
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+      
+        <!-- Grid column -->
+        <div class="col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-code"></i>
+			ProductiveProgrammer.me
+	            <i class="fas fa-code"></i>
+          </h6>
+          <p>
+            This website was originally inspired 
+            by my obsession with becoming the best programmer. 
+            The goal is to be able to produce more in quality and quantity. 
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-4 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="https://github.com/ChristianRansom" class="text-reset">Github</a>
+          </p>
+          <p>
+            <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="text-reset">LinkedIn</a>
+          </p>
+          <p>
+            <a href="https://dev.to/christianransom" class="text-reset">Dev.to</a>
+          </p>
+          <p>          
+            <a href="{% url 'dashboard' %}" class="text-reset">Home Page</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-4 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> Santa Clarita, CA, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            christian.ransom123@gmail.com
+          </p>
+          <p><i class="fab fa-linkedin"></i> 
+              <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
+                  	LinkedIn
+              </a>
+          </p>
+        </div>
+        <!-- Grid column -->
+        
+      </div>
+      <!-- Grid row -->
+      
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    Built with Django by Christian Ransom
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
 
 

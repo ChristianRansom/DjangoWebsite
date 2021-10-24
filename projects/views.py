@@ -27,12 +27,12 @@ def project_detail(request, pk):
 
 projects = {
     0:  {
-            'name': 'productiveprogrammer.me ',
+            'name': 'ProductiveProgrammer ',
             'description': 'A personal portfolio and blog',
             'explanation': 'A personal portfolio and blog to show off my projects and interests. Currently a work in progress. ',
             'date': 'October 2021 - Present',
             'link': 'link',
-            'image': 'img/project1.png',
+            'image': 'img/sitelogo.png',
             'skills': 'skills',
         },
     1:  {
@@ -75,6 +75,15 @@ projects = {
             'name': 'Snake',
             'description': 'Python Game',
             'explanation': 'A game written in Python using Pygame and TkInter. I was the technical lead on this project and led three other developers to make contributions to the project. ',
+            'date': 'Feb 2019 - Jun 2019',
+            'link': 'link',
+            'image': 'img/project3.png',
+            'skills': 'skills',
+        },
+    6:  {
+            'name': 'Job Scraper',
+            'description': 'A tool that searches job descriptions',
+            'explanation': 'A web crawler that scraped current job listings and analyses the text to find meaningful common words. ',
             'date': 'Feb 2019 - Jun 2019',
             'link': 'link',
             'image': 'img/project3.png',
