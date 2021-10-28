@@ -1,0 +1,79 @@
+.timeline-icon {
+    overflow: visible;
+    position: relative;
+    left: -7px;
+    display: block;
+    content: "";
+}
+
+.commit-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inner-buttons {
+    margin: 10px 0px 10px;
+    font-family: Courier New, monospace;
+}
+
+.vertical-line {
+  border-left: 3px solid lightgrey;
+}
+
+.vertical-divider {
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  padding: 9px 5px 9px;
+}
+
+.fake-button:hover {
+    background-color: WhiteSmoke;
+}
+
+.fake-button {
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+}
+
+.branch-button {
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+    background-color: WhiteSmoke;
+    display: inline-block;
+    padding: 0px 20px 0px 20px;
+    border-radius: 5px;
+}
+
+.inner-container {
+    padding: 0px 0px 0px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+.commit-message {
+    font-size: 14px;
+}
+
+.commit-details {
+  font-weight: 600;
+}
+
+.commit-date {
+  font-size: 12px;
+}
+
+
+
+hr {
+    margin: 0px 0px 0px;
+    border: 0;
+}
+p {
+    margin: 0px 0px 0px;
+    border: 0;
+}
