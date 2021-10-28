@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block page_content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+
+
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+
+
+<h5><span class="iconify" data-icon="octicon:repo-24"></span> <span class="text-primary">Christian Ransom/Experience</span></h5>
+
+<div class="branch-button">
+    <span class="iconify" data-icon="fluent:branch-fork-16-regular"></span>
+    dev
+    <span class="iconify" data-icon="ant-design:caret-down-outlined"></span>
+</div>
+{% for experience_number, experience_info in experience.items %}
+<div class="container">
+    <div class="timeline-icon">
+        <span class="iconify" data-icon="octicon:commit-24"></span>
+        <h7>Commits on <b>{{experience_info.company}} - {{experience_info.title}}</b></h7>
+    </div>
+    <div>
+        <div class="container vertical-line">
+            <div class="inner-container">
+                    {% for id, line in experience_info.explanation.items %}
+                        {% if forloop.counter0 > 0 %}
+                            <hr/>
+                        {% endif %}
+                            <div class="fake-button commit-container">
+                                    <div class="commit-message">
+                                        <p class="text-left commit-details">{{line}}</p>
+                                        <div class="commit-date text-left">
+                                        <img height="20" width="20" alt="@christian-ransom"
+                                             src="https://avatars.githubusercontent.com/u/15479158?v=4"
+                                             class="avatar-user rounded-circle">
+                                            <b>Christian Ransom</b> committed on {{experience_info.date}}
+                                        </div>
+                                    </div>
+                                    <div class="inner-buttons">
+                                        <div class="btn btn-light border">
+                                            <span class="iconify " data-icon="bx:bx-copy"></span>
+                                            <span class="text-primary vertical-divider ">{{id}}</span>
+                                            <span class="iconify" data-icon="octicon:code-16"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<h1>Projects</h1>
+<div class="row">
+    {% for project_number, project_info in projects.items %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project_info.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project_info.name }}</h5>
+                <p class="card-text">{{ project_info.description }}</p>
+                <p class="card-text">{{ project_info.date }}</p>
+                <p class="card-text">{{ project_info.link }}</p>
+                <a href="{% url 'project_detail' project_number %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

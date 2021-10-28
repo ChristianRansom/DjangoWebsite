@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'social_django',
     'jobscraper',
     'widget_tweaks',
+    'resume',
     #'hello_world',
 ]
 

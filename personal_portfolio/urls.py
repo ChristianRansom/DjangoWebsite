@@ -22,7 +22,7 @@ from users.views import dashboard
 urlpatterns = [
     url(r"^", include("users.urls")),
     path('admin/', admin.site.urls),
-    path("projects/", include("projects.urls")),
+    path("resume/", include("resume.urls")),
     path("blog/", include("blog.urls")),
     path("jobscraper/", include("jobscraper.urls")),
     url("", dashboard)
