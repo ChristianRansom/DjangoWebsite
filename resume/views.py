@@ -150,7 +150,7 @@ projects = {
         'explanation': 'A Forum and Topic System built with Django created from following this excellent tutorial https://simpleisbetterthancomplex.com/series/beginners-guide/1.11/',
         'date': 'Sep 2019 - Aug 2019',
         'link': 'link',
-        'image': 'img/project1.png',
+        'image': 'img/DjangoWebBoards.png',
         'skills': 'skills',
     },
     2: {
@@ -159,7 +159,7 @@ projects = {
         'explanation': 'An implementation from scratch of deep neural networks. Allows for the creation of multilayered networks that train through supervised learning and backpropagation.',
         'date': 'Feb 2019 - March 2019',
         'link': 'link',
-        'image': 'img/project2.png',
+        'image': 'img/DeepNeuralNetworks.png',
         'skills': 'skills',
     },
     3: {
@@ -168,7 +168,7 @@ projects = {
         'explanation': 'A lightweight plugin that schedules commands across restarts and long periods. This project uses a complex data structure (AVL Tree) to handle the data.',
         'date': 'Oct 2017 - Feb 2018',
         'link': 'link',
-        'image': 'img/project3.png',
+        'image': 'img/CommandSchedulerPlus.png',
         'skills': 'skills',
     },
     4: {
@@ -177,7 +177,7 @@ projects = {
         'explanation': 'A simple Android game written in Java. This project taught me about the Android Development Environment.',
         'date': 'Jan 2016 - Jun 2016',
         'link': 'link',
-        'image': 'img/project3.png',
+        'image': 'img/DodgerBall.jpg',
         'skills': 'skills',
     },
     5: {
@@ -186,7 +186,7 @@ projects = {
         'explanation': 'A game written in Python using Pygame and TkInter. I was the technical lead on this project and led three other developers to make contributions to the project. ',
         'date': 'Feb 2019 - Jun 2019',
         'link': 'link',
-        'image': 'img/project3.png',
+        'image': 'img/SnakeGame.png',
         'skills': 'skills',
     },
     6: {
@@ -195,7 +195,7 @@ projects = {
         'explanation': 'A web crawler that scraped current job listings and analyses the text to find meaningful common words. ',
         'date': 'Feb 2019 - Jun 2019',
         'link': 'link',
-        'image': 'img/project3.png',
+        'image': 'img/JobScraper.png',
         'skills': 'skills',
     },
 }

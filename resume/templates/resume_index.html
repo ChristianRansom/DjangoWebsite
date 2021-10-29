@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 
-{% load static %}
 
 {% block page_content %}
 
 
-
 {% load static %}
-
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+
+<br/><br/>
 
 <h4>Summary</h4>
 <h6>Quality-focused software developer who loves to tackle difficult problems that require complex solutions. Strives to not only solve problems creatively, but to always discover the best possible solution.</h6>
@@ -87,10 +86,10 @@
 {% endfor %}
 
 <h1>Projects</h1>
-<div class="row">
+<div class="d-flex flex-wrap justify-content-center">
     {% for project_number, project_info in projects.items %}
-    <div class="col-md-4">
-        <div class="card mb-2">
+    <div class="flex-item w-25 m-2">
+        <div class="card h-100">
             <img class="card-img-top" src="{% static project_info.image %}">
             <div class="card-body">
                 <h5 class="card-title">{{ project_info.name }}</h5>
