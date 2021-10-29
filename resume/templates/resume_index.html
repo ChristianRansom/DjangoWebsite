@@ -4,12 +4,42 @@
 
 {% block page_content %}
 
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
 
+
+{% load static %}
 
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
 
+<h4>Summary</h4>
+<h6>Quality-focused software developer who loves to tackle difficult problems that require complex solutions. Strives to not only solve problems creatively, but to always discover the best possible solution.</h6>
+
+<br/><br/><br/>
+
+<h4>Educaiton</h4>
+<h6>OpenEDG Python Institute - Certified Associate in Python Programming – (September 2019) </h6>
+<h6>The Master's University, Santa Clarita CA - B.S.in Computer Science - (2014 - 2019)</h6>
+
+<br/><br/><br/>
+
+<div class="skills-console">
+    <div class="header-bar">
+        <span class="iconify" data-icon="codicon:terminal-cmd"></span>
+        ChristianRansom@WebServer:~/home/developer/skills$
+        <div class="float-right">
+            <span class="iconify" data-icon="codicon:chrome-maximize"></span>
+            <span class="iconify" data-icon="codicon:chrome-minimize"></span>
+            <span class="iconify" data-icon="clarity:close-line"></span>
+        </div>
+    </div>
+    <div class="console-text">
+        {% for skill in skills %}
+            <pre>{{skill}}</pre>
+        {% endfor %}
+    </div>
+</div>
+
+<br/><br/><br/>
 
 <h5><span class="iconify" data-icon="octicon:repo-24"></span> <span class="text-primary">Christian Ransom/Experience</span></h5>
 
@@ -22,7 +52,7 @@
 <div class="container">
     <div class="timeline-icon">
         <span class="iconify" data-icon="octicon:commit-24"></span>
-        <h7>Commits on <b>{{experience_info.company}} - {{experience_info.title}}</b></h7>
+        <h7>Commits on <b>{{experience_info.company}} - <u>{{experience_info.title}}</u></b></h7>
     </div>
     <div>
         <div class="container vertical-line">

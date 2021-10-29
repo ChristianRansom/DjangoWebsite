@@ -7,7 +7,8 @@ from django.shortcuts import render
 def resume_index(request):
     context = {
         'projects': projects,
-        'experience': experience
+        'experience': experience,
+        'skills': skills,
     }
     return render(request, 'resume_index.html', context)
 
@@ -18,6 +19,37 @@ def project_detail(request, pk):
     }
     return render(request, 'project_detail.html', context)
 
+
+skill_list = {
+    'Python': 8,
+    'Django': 7,
+    'Java': 6,
+    'Git': 6,
+    'HTML': 6,
+    'Data Structures': 5,
+    'Linux': 5,
+    'CSS': 5,
+    'Bootstrap': 4,
+    'SQL': 4,
+    'Android Development': 4,
+    'JavaScript': 4,
+    'Puppet': 3,
+    'AWS': 3,
+    'PHP': 3,
+}
+display_size = 30
+
+skills = []
+skills.append("mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';")
+skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
+skills.append("|" + str("skill").center(display_size) + "|" + str("mastery").center(display_size) + "|")
+skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
+
+for skill, mastery in skill_list.items():
+    skills.append("|" + str(skill).center(display_size) + "|" + str(mastery).center(display_size) + "|")
+
+skills.append("+" + "-"*display_size + "|" + "-"*display_size + "+")
+skills.append(str(len(skill_list)) + " rows in set (0.05 sec)")
 
 
 experience = {
@@ -30,16 +62,16 @@ experience = {
             'm0xe5f6':'Performed the installation of dozens Back-office Servers with Windows 10 by imaging the old PC and migrating the data to the new PC and configuring the new system',
         }
     },
-    1: {
-        'company': 'Church of the Canyons',
-        'title': 'College and Career Director',
-        'date': 'January 2020 – June 2021',
-        'explanation': {
-            '0l9e9t8':'Actively mentored and trained college leaders in spiritual formation, evangelism, and outreach methods',
-            'fe0ka00':'Developed and taught bible study methods weekly',
-            'z98a229':'Arranged weekly events and fellowship opportunities',
-        }
-    },
+    #1: {
+    #    'company': 'Church of the Canyons',
+    #    'title': 'College and Career Director',
+    #    'date': 'January 2020 – June 2021',
+    #    'explanation': {
+    #        '0l9e9t8':'Actively mentored and trained college leaders in spiritual formation, evangelism, and outreach methods',
+    #        'fe0ka00':'Developed and taught bible study methods weekly',
+    #        'z98a229':'Arranged weekly events and fellowship opportunities',
+    #    }
+    #},
     2: {
         'company': 'TWR (Trans World Radio) ',
         'title': 'Software Developer',

@@ -6,6 +6,27 @@
     content: "";
 }
 
+.skills-console {
+    background-color: black;
+}
+
+.header-bar {
+    background-color: lightgrey;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.console-text {
+    color:white;
+    padding-left:40px;
+}
+
+pre {
+    color:white;
+    display: block;
+    margin: 0;
+}
+
 .commit-container {
     display: flex;
     justify-content: space-between;
@@ -73,7 +94,6 @@ hr {
     margin: 0px 0px 0px;
     border: 0;
 }
-p {
-    margin: 0px 0px 0px;
-    border: 0;
-}
+
+
+

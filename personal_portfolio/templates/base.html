@@ -34,7 +34,7 @@
                  <img src={% static "img/sitelogo.png" %} alt="" width="100">
 			  </a>
             </li>
-			<li class="nav-item{% if '/resume/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+			<li class="nav-item {% if '/resume/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
               <a class="nav-link" href="{% url 'resume_index' %}">Resume</a>
             </li>
 			<li class="nav-item {% if '/blog/' in request.path %}active h4 " style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
