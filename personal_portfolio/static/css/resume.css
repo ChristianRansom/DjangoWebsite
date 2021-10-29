@@ -6,6 +6,14 @@
     content: "";
 }
 
+.resume-navbar > * {
+    margin:0;
+}
+
+h4 {
+    padding-top:100px;
+}
+
 .skills-console {
     background-color: black;
 }
