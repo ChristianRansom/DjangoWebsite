@@ -20,7 +20,7 @@
 <h6>The Master's University, Santa Clarita CA - B.S.in Computer Science - (2014 - 2019)</h6>
 
 <br/><br/><br/>
-
+<h4>Skills</h4>
 <div class="skills-console">
     <div class="header-bar">
         <span class="iconify" data-icon="codicon:terminal-cmd"></span>
@@ -85,25 +85,28 @@
 </div>
 {% endfor %}
 
+<br/><br/><br/>
+
 <h1>Projects</h1>
 <div class="d-flex flex-wrap justify-content-center">
     {% for project_number, project_info in projects.items %}
     <div class="flex-item w-25 m-2">
         <div class="card h-100">
-            <img class="card-img-top" src="{% static project_info.image %}">
-            <div class="card-body">
-                <h5 class="card-title">{{ project_info.name }}</h5>
-                <p class="card-text">{{ project_info.description }}</p>
-                <p class="card-text">{{ project_info.date }}</p>
-                <p class="card-text">{{ project_info.link }}</p>
-                <a href="{% url 'project_detail' project_number %}"
-                   class="btn btn-primary">
-                    Read More
-                </a>
-            </div>
+            <a href="{% url 'project_detail' project_number %}"
+               class="btn-light h-100">
+                <img class="card-img-top" src="{% static project_info.image %}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project_info.name }}</h5>
+                    <p class="card-text">{{ project_info.description }}</p>
+                    <p class="card-text">{{ project_info.date }}</p>
+                </div>
+            </a>
+
         </div>
     </div>
     {% endfor %}
 </div>
+
+<br/><br/><br/>
 
 {% endblock %}

@@ -42,7 +42,7 @@ display_size = 30
 skills = []
 skills.append("mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';")
 skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
-skills.append("|" + str("skill").center(display_size) + "|" + str("mastery").center(display_size) + "|")
+skills.append("|" + str("skill").center(display_size) + "|" + str("proficiency").center(display_size) + "|")
 skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
 
 for skill, mastery in skill_list.items():
