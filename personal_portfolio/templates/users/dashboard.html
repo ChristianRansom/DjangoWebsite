@@ -1,14 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block page_content %}
-Hello, {{ user.username|default:'Guest' }}!
 
-<div>
-    {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="{% url 'password_change' %}">Change password</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+
+<div class="d-flex flex-row justify-content-center">
+    <img class="profile-image" src={% static "img/profilepic1.png" %} alt="" width="100">
+    <div class="d-flex flex-column">
+        <div class="text-center">
+            <h1>Productive Programmer</h1>
+            <h3>High Value Programming</h3>
+        </div>
+        <div class="mx-auto">
+            about me
+        </div>
+    </div>
+    <img class="profile-image" src={% static "img/profilepic2.png" %} alt="" width="100">
+</div>
+
+<div class="row justify-content-around">
+    <div class="card col-3 text-center">
+        Featured article
+    </div>
+    <div class="card col-3 text-center">
+        I started a blog to write about my interests and share my learning journey. One of the best ways to learn is to
+        teach, so I've also started writing tutorials.
+    </div>
+    <div class="card col-3 text-center">
+        Most recent articles
+    </div>
+</div>
+
+<div class="row justify-content-around">
+    <div class="card col-3 text-center">
+        Currently I work as a field technician for Zutek. I install technical equipment like servers and terminals, as
+        well as troubleshoot and fix things like timer systems.
+    </div>
+    <div class="card col-3 text-center">
+        Project Carousel
+    </div>
+    <div class="card col-3 text-center">
+        Top Skills
+    </div>
 </div>
 {% endblock %}

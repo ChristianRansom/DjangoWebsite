@@ -4,8 +4,7 @@ from django.urls import reverse
 from users.forms import CustomUserCreationForm
 
 def dashboard(request):
-    #return render(request, "resume_index.html")
-    return redirect(reverse("resume_index"))
+    return render(request, "users/dashboard.html")
 
 def register(request):
     if request.method == "GET":
