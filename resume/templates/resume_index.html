@@ -26,7 +26,6 @@
 
 
 {% load static %}
-<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
 
 <h4 id="summary">Summary</h4>
@@ -99,25 +98,7 @@
 </div>
 {% endfor %}
 
-<h4 id="projects">Projects</h4>
-<div class="d-flex flex-wrap justify-content-center">
-    {% for project_number, project_info in projects.items %}
-    <div class="flex-item w-25 m-2">
-        <div class="card h-100">
-            <a href="{% url 'project_detail' project_number %}"
-               class="btn-light h-100">
-                <img class="card-img-top" src="{% static project_info.image %}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project_info.name }}</h5>
-                    <p class="card-text">{{ project_info.description }}</p>
-                    <p class="card-text">{{ project_info.date }}</p>
-                </div>
-            </a>
-
-        </div>
-    </div>
-    {% endfor %}
-</div>
+{% include "projects.html" %}
 
 <br/><br/><br/>
 
