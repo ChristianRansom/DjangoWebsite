@@ -27,6 +27,7 @@
             }
 		});
     });
+
 </script>
 {%endblock scripts%}
 
@@ -61,13 +62,13 @@
 			    					{% render_field field class="form-control" %}
 			    				{% else %}
 						     	<div class="input-group-prepend">
-							       	<div class="input-group-text">
+							       	<div class="input-group-text h-100">
 						    			{% if field.label|lower == "job search"%}
-											<i class='bx bx-search-alt'></i>
-						    			{% elif field.label|lower == "location"  %}
-											<i class='bx bxs-map'></i>
+											<i class="iconify" data-icon="websymbol:search"></i>
+										{% elif field.label|lower == "location"  %}
+											<i class="iconify" data-icon="akar-icons:location"></i>
 						    			{% elif field.label|lower == "search size"%}
-											<i class='bx bx-hash'></i>									
+											<i class="iconify" data-icon="fluent:book-number-16-filled"></i>
 						    			{% endif %}
 							       	</div>
 						   		</div>
@@ -99,7 +100,8 @@
 	</div>
 </form>
 
-<canvas id="myChart" width="400" height="200"></canvas>  
-
+<div class="container">
+	<canvas id="myChart" width="400" height="200"></canvas>
+</div>
 
 {% endblock %}
