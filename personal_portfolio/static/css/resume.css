@@ -1,11 +1,3 @@
-.timeline-icon {
-    overflow: visible;
-    position: relative;
-    left: -7px;
-    display: block;
-    content: "";
-}
-
 .resume-navbar > * {
     margin:0;
 }

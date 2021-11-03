@@ -13,23 +13,19 @@
 
 <div class="carousel">
     {% for project_number, project_info in projects.items %}
-    <div class="item">
-        <div class="card">
-            <a href="{% url 'project_detail' project_number %}"
-               class="btn-light">
-                <img class="card-img-top" src="{% static project_info.image %}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project_info.name }}</h5>
-                    <p class="card-text">{{ project_info.description }}</p>
-                    <p class="card-text">{{ project_info.date }}</p>
-                </div>
-            </a>
-        </div>
+    <div class="item rounded border-dark" style="height: 300px;">
+        <a href="{% url 'project_detail' project_number %}"
+           class="btn-light">
+            <img class="h-50 w-100" src="{% static project_info.image %}">
+            <div class="tex-center">
+                <h5 class="tex-center">{{ project_info.name }}</h5>
+                <p class="tex-center">{{ project_info.description }}</p>
+                <p class="tex-center">{{ project_info.date }}</p>
+            </div>
+        </a>
     </div>
     {% endfor %}
 </div>
-
-
 
 <script>
 $(document).ready(function () {
@@ -38,7 +34,7 @@ $(document).ready(function () {
     autoplay: true,
     autoplaySpeed: 1,
     cssEase: "linear",
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     dots: false,
     prevArrow: false,
@@ -48,5 +44,7 @@ $(document).ready(function () {
   });
 });
 //https://kenwheeler.github.io/slick/
+
+
 
 </script>
