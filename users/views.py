@@ -2,9 +2,20 @@ from django.contrib.auth import login
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from users.forms import CustomUserCreationForm
+from resume.resume_data import *
+from blog.models import Post
+
 
 def dashboard(request):
-    return render(request, "users/dashboard.html")
+    posts = Post.objects.all().order_by('-created_on')
+    context = {
+        'projects': projects,
+        'experience': experience,
+        'skills': skills,
+        'skill_list': skill_list,
+        "posts": posts,
+    }
+    return render(request, "users/dashboard.html", context)
 
 def register(request):
     if request.method == "GET":

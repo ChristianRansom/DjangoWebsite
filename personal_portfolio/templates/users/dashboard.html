@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% load static %}
 
 {% block page_content %}
+{% load static %}
 
 
-<div class="d-flex flex-row justify-content-center">
-    <img class="profile-image" src={% static "img/profilepic1.png" %} alt="" width="100">
-    <div class="d-flex flex-column">
+<div class="d-flex flex-row justify-content-center m-3">
+    <img class="profile-image col-3" src={% static "img/profilepic1.png" %} alt="" width="100">
+    <div class="d-flex flex-column m-3">
         <div class="text-center">
             <h1>Productive Programmer</h1>
             <h3>High Value Programming</h3>
@@ -15,32 +15,66 @@
             about me
         </div>
     </div>
-    <img class="profile-image" src={% static "img/profilepic2.png" %} alt="" width="100">
+    <img class="profile-image col-3" src={% static "img/profilepic2.png" %} alt="" width="100">
 </div>
 
-<div class="row justify-content-around">
-    <div class="card col-3 text-center">
-        Featured article
-    </div>
-    <div class="card col-3 text-center">
-        I started a blog to write about my interests and share my learning journey. One of the best ways to learn is to
-        teach, so I've also started writing tutorials.
-    </div>
-    <div class="card col-3 text-center">
-        Most recent articles
+
+<div class="section-blog text-center p-2 m-2 bg-light">
+    <h3> Check out my blog! </h3>
+    <div class="row justify-content-around">
+        <div class="card col-3 text-center">
+            <h6>Featured article</h6>
+            Coming soon!
+        </div>
+        <div class="card col-3 text-center">
+            <h6>The Productive Programmer Blog</h6>
+
+            I started a blog to write about my interests and share my learning journey. One of the best ways to learn is
+            to teach, so I've also started writing tutorials.
+        </div>
+        <div class="card col-3 text-center">
+            <h6>Most recent articles</h6>
+            {% for post in posts %}
+                <h6><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h6>
+                <small>
+                    {{ post.created_on.date }} |&nbsp;
+                    Categories:&nbsp;
+                    {% for category in post.categories.all %}
+                    <a href="{% url 'blog_category' category.name %}">
+                        {{ category.name }}
+                    </a>&nbsp;
+                    {% endfor %}
+                </small>
+                <p>{{ post.body | slice:":100" }}...</p>
+            {% endfor %}
+
+
+        </div>
     </div>
 </div>
 
-<div class="row justify-content-around">
-    <div class="card col-3 text-center">
-        Currently I work as a field technician for Zutek. I install technical equipment like servers and terminals, as
-        well as troubleshoot and fix things like timer systems.
-    </div>
-    <div class="card col-3 text-center">
-        Project Carousel
-    </div>
-    <div class="card col-3 text-center">
-        Top Skills
+<div class="section-resume text-center p-2 m-2 bg-light">
+    <h3> Check out my resume! </h3>
+    <div class="row justify-content-around">
+        <div class="card col-3 text-center">
+            <h6>Current Work</h6>
+            Currently I work as a field technician for Zutek. I install technical equipment like servers and terminals,
+            as well as troubleshoot and fix equipment.
+        </div>
+
+        <div class="card col-5 text-center">
+            {% include "mini_projects_carousel.html" %}
+        </div>
+        <div class="card col-3 text-center">
+            <h6>Top Skills</h6>
+            {% for skill in skill_list %}
+            {% if forloop.counter0 < 5 %}
+            <pre>{{skill}}</pre>
+            {% endif %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+
+
 {% endblock %}
