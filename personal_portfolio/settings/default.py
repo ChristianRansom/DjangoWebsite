@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'jobscraper',
     'widget_tweaks',
     'resume',
+    'fun'
     #'hello_world',
 ]
 
