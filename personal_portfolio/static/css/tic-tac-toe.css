@@ -1,0 +1,27 @@
+.resizer {
+   position: relative;
+   width: 100%;
+   padding-bottom: 100%;
+}
+
+.tic-tac-toe-container {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 33.33% 33.33% 33.33%;
+    background-color: #2196F3;
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    min-height: 0;  /* NEW */
+    min-width: 0;   /* NEW; needed for Firefox */
+}
+
+.game-cell {
+    border: 2px solid black;
+    overflow: hidden;  /* NEW */
+    min-width: 0;      /* NEW; needed for Firefox */
+}

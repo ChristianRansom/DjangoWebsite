@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tic-tac-toe.css' %}">
+
+<div class="col-6">
+<h3 class="game--title text-center">Tic Tac Toe</h3>
+    <div class="resizer">
+        <div class="border tic-tac-toe-container bg-secondary" data-cell-index="0">
+            <div class="game-cell" id="cell-0"></div>
+            <div class="game-cell" id="cell-1"></div>
+            <div class="game-cell" id="cell-2"></div>
+            <div class="game-cell" id="cell-3"></div>
+            <div class="game-cell" id="cell-4"></div>
+            <div class="game-cell" id="cell-5"></div>
+            <div class="game-cell" id="cell-6"></div>
+            <div class="game-cell" id="cell-7"></div>
+            <div class="game-cell" id="cell-8"></div>
+        </div>
+    </div>
+    <div class="row cells-container justify-content-md-center mx-auto" style="height: 100px;">
+        <h5 class="game--status text-center"></h5>
+        <button class="game--restart w-auto h-25 mx-auto">Restart Game</button>
+    </div>
+</div>
+
+
+</body>
+
+<footer>
+
+    <script src="{% static 'javascript/tic-tac-toe.js' %}"></script>
+
+</footer>
