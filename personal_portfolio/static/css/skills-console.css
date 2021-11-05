@@ -1,0 +1,50 @@
+.skills-console {
+    background-color: black;
+}
+
+.header-bar {
+    background-color: lightgrey;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.console-text {
+    color:white;
+    padding-left:40px;
+}
+
+pre {
+    color:white;
+    display: block;
+    margin: 0;
+    overflow: hidden;
+}
+
+.wrapper {
+  height: 100vh;
+  /*This part is important for centering*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-demo{
+  width: 100ch;
+  animation: typing 10s steps(100), blink .5s step-end infinite alternate;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 1em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
