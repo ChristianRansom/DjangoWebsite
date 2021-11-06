@@ -135,6 +135,10 @@ print("static_root: " + str(STATIC_ROOT))
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'personal_portfolio/static'),
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 LOGIN_REDIRECT_URL = "dashboard"
 LOGOUT_REDIRECT_URL = "dashboard"
 

@@ -82,9 +82,9 @@ function handleResultValidation() {
         }
         if (a === b && b === c) {
             roundWon = true;
-            document.getElementById('cell-' + winCondition[0]).style.color = "green";
-            document.getElementById('cell-' + winCondition[1]).style.color = "green";
-            document.getElementById('cell-' + winCondition[2]).style.color = "green";
+            document.getElementById('cell-' + winCondition[0]).style.color = "lime";
+            document.getElementById('cell-' + winCondition[1]).style.color = "lime";
+            document.getElementById('cell-' + winCondition[2]).style.color = "lime";
             break
         }
     }
