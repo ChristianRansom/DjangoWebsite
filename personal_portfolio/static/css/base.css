@@ -1,0 +1,31 @@
+body {
+    font-style: normal;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+
+.fullscreen {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.fullscreen2 {
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.social-links > *{
+    text-decoration: none;
+}
