@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
             crossorigin="anonymous"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
     <!--Chart js-->
@@ -71,13 +70,13 @@
                 <ul class="navbar-nav ms-auto align-self-center p-3">
                     <li class="social-links">
                         <a href="https://github.com/ChristianRansom" class="me-4 text-reset">
-                            <i class="fab fa-github"></i>
+                            <span class="iconify" data-icon="codicon:github-inverted"></span>
                         </a>
                         <a href="https://dev.to/christianransom" class="me-4 text-reset">
-                            <i class="fab fa-dev"></i>
+                            <span class="iconify" data-icon="fa-brands:dev"></span>
                         </a>
                         <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
-                            <i class="fab fa-linkedin"></i>
+                            <span class="iconify" data-icon="brandico:linkedin-rect"></span>
                         </a>
                         {% if user.is_authenticated %}
                         <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
@@ -119,14 +118,14 @@
                 <div class="text-center col-md-5 col-lg-4 col-xl-4 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-code"></i>
+                        <span class="iconify" data-icon="bx:bx-code-alt"></span>
                         ProductiveProgrammer.me
-                        <i class="fas fa-code"></i>
+                        <span class="iconify" data-icon="bx:bx-code-alt"></span>
                     </h6>
                     <p>
                         This website was originally inspired
                         by my obsession with always becoming a better programmer.
-                        The goal is to be able to produce more in quality and quantity.
+                        My goal is to learn how to more efficiently use my time and energy to produce valuable code.
                     </p>
                 </div>
                 <!-- Grid column: about -->
@@ -158,14 +157,14 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         Contact
                     </h6>
-                    <p><i class="fas fa-home me-3"></i> Santa Clarita, CA, US</p>
+                    <p><span class="iconify" data-icon="clarity:home-solid"></span></i> Santa Clarita, CA, US</p>
                     <p>
-                        <i class="fas fa-envelope me-3"></i>
+                        <span class="iconify" data-icon="fluent:mail-28-filled"></span>
                         productiveprogrammer.me@gmail.com
                     </p>
-                    <p><i class="fab fa-linkedin"></i>
+                    <p>
                         <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
-                            LinkedIn
+                            <span class="iconify" data-icon="brandico:linkedin-rect"></span> LinkedIn
                         </a>
                     </p>
                 </div>
