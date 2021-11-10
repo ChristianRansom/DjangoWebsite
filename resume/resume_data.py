@@ -17,7 +17,7 @@ skill_list = {
     'AWS': 3,
     'PHP': 3,
 }
-display_size = 30
+display_size = 20
 
 skills = []
 skills.append("mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';")

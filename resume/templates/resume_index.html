@@ -2,87 +2,117 @@
 
 
 {%block navbar-addons%}
-    <div class="resume-navbar collapse navbar-collapse w-100 navbar-dark bg-secondary" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#summary">Summary</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#experience">Experience</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
-            </li>
-        </ul>
-    </div>
+<div class="resume-navbar collapse navbar-collapse w-100 navbar-dark bg-secondary" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#summary">Summary</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+        </li>
+    </ul>
+</div>
 {%endblock navbar-addons%}
-
-
-
 {% block page_content %}
-
-
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
 
-<h4 id="summary">Summary</h4>
-<h6>Quality-focused software developer who loves to tackle difficult problems that require complex solutions. Strives to not only solve problems creatively, but to always discover the best possible solution.</h6>
-
-<h4 id="education">Educaiton</h4>
-<h6>OpenEDG Python Institute - Certified Associate in Python Programming – (September 2019) </h6>
-<h6>The Master's University, Santa Clarita CA - B.S.in Computer Science - (2014 - 2019)</h6>
-
-<h4 id="skills">Skills</h4>
-{% include "skills-console.html" %}
-
-
-<h4 id="experience"><span class="iconify" data-icon="octicon:repo-24"></span> <span class="text-primary">Christian Ransom/Experience</span></h4>
-
-<div class="branch-button">
-    <span class="iconify" data-icon="fluent:branch-fork-16-regular"></span>
-    dev
-    <span class="iconify" data-icon="ant-design:caret-down-outlined"></span>
-</div>
-{% for experience_number, experience_info in experience.items %}
-<div class="container">
-    <div class="timeline-icon">
-        <span class="iconify" data-icon="octicon:commit-24"></span>
-        <h7>Commits on <b>{{experience_info.company}} - <u>{{experience_info.title}}</u></b></h7>
-    </div>
-    <div>
-        <div class="container vertical-line">
-            <div class="inner-container">
-                    {% for id, line in experience_info.explanation.items %}
-                        {% if forloop.counter0 > 0 %}
-                            <hr/>
-                        {% endif %}
-                            <div class="fake-button commit-container">
-                                    <div class="commit-message">
-                                        <p class="text-left commit-details">{{line}}</p>
-                                        <div class="commit-date text-left">
-                                        <img height="20" width="20" alt="@christian-ransom"
-                                             src="https://avatars.githubusercontent.com/u/15479158?v=4"
-                                             class="avatar-user rounded-circle">
-                                            <b>Christian Ransom</b> committed on {{experience_info.date}}
-                                        </div>
-                                    </div>
-                                    <div class="inner-buttons">
-                                        <div class="btn btn-light border">
-                                            <span class="iconify " data-icon="bx:bx-copy"></span>
-                                            <span class="text-primary vertical-divider ">{{id}}</span>
-                                            <span class="iconify" data-icon="octicon:code-16"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                    {% endfor %}
+<!-- Section: Summary and Education -->
+<section class="fullscreen bg-black">
+    <div class="container mx-auto mt-auto p-0">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 ms-0 p-0 m-0">
+                <div class="image-wrapper">
+                    <img class="profilepic" src='{% static "img/profilepic3.png" %}' alt="Skills">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 p-4 text-white">
+                <h1 id="summary" class="py-4">Summary</h1>
+                <h5>Quality-focused software developer who loves to tackle difficult problems that require complex
+                    solutions.
+                    Strives to not only solve problems creatively, but to always discover the best possible
+                    solution.</h5>
+                <h1 id="education" class="py-4">Educaiton</h1>
+                <h5>OpenEDG Python Institute - Certified Associate in Python Programming – (September 2019) </h5>
+                <h5>The Master's University, Santa Clarita CA - B.S.in Computer Science - (2014 - 2019)</h5>
             </div>
         </div>
     </div>
-</div>
-{% endfor %}
+</section>
+<!-- Section: Summary and Education -->
+
+<!-- Section: Skills -->
+<section class="fullscreen"
+         style="background-image: url('{% static 'img/joanna-kosinska.jpg' %}');">
+    <div class="container m-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+                <h1 class="p-2" id="skills">Skills</h1>
+                <div class="text-start">
+                    {% include "skills-console.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Skills -->
+
+<!-- Section: Experience -->
+<section class="fullscreen2">
+    <h4 class="p-5" id="experience"><span class="iconify" data-icon="octicon:repo-24"></span> <span class="text-primary">Christian Ransom/Experience</span>
+    </h4>
+
+    <div class="branch-button">
+        <span class="iconify" data-icon="fluent:branch-fork-16-regular"></span>
+        dev
+        <span class="iconify" data-icon="ant-design:caret-down-outlined"></span>
+    </div>
+    {% for experience_number, experience_info in experience.items %}
+    <div class="container">
+        <div class="timeline-icon">
+            <span class="iconify" data-icon="octicon:commit-24"></span>
+            <h7>Commits on <b>{{experience_info.company}} - <u>{{experience_info.title}}</u></b></h7>
+        </div>
+        <div>
+            <div class="container vertical-line">
+                <div class="inner-container">
+                    {% for id, line in experience_info.explanation.items %}
+                    {% if forloop.counter0 > 0 %}
+                    <hr/>
+                    {% endif %}
+                    <div class="fake-button commit-container">
+                        <div class="commit-message">
+                            <p class="text-left commit-details">{{line}}</p>
+                            <div class="commit-date text-left">
+                                <img height="20" width="20" alt="@christian-ransom"
+                                     src="https://avatars.githubusercontent.com/u/15479158?v=4"
+                                     class="avatar-user rounded-circle">
+                                <b>Christian Ransom</b> committed on {{experience_info.date}}
+                            </div>
+                        </div>
+                        <div class="inner-buttons">
+                            <div class="btn btn-light border">
+                                <span class="iconify " data-icon="bx:bx-copy"></span>
+                                <span class="text-primary vertical-divider ">{{id}}</span>
+                                <span class="iconify" data-icon="octicon:code-16"></span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<!-- Section: Experience -->
+
 
 <h4 id="projects">Projects</h4>
 {% include "projects.html" %}

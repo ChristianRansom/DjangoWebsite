@@ -1,9 +1,15 @@
+.fullscreen {
+    min-height: 86vh;
+}
+
+
 .resume-navbar > * {
     margin:0;
 }
 
-h4 {
-    padding-top:100px;
+.profilepic {
+    min-width: 100%;
+    overflow: hidden;
 }
 
 .commit-container {

@@ -5,12 +5,11 @@ body {
 }
 
 
+
 .fullscreen {
     display: flex;
     align-items: center;
-    min-height: 100vh;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    min-height: 95vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
