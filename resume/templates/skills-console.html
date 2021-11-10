@@ -14,9 +14,12 @@
             <span class="iconify" data-icon="clarity:close-line"></span>
         </span>
     </div>
-    <div class="console-text  ">
-        {% for skill in skills %}
-            <pre class="typing-demo">{{skill}}</pre>
-        {% endfor %}
+    <div class="console-text"
+         data-text="mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';">
+        <pre id="typewriter">
+            {% for skill in skills %} &#10;{{skill}}{% endfor %}
+        </pre>
     </div>
 </div>
+
+
