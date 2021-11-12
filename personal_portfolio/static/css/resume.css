@@ -1,16 +1,18 @@
 .fullscreen {
-    min-height: 86vh;
+    min-height: 90vh;
 }
 
 
 .resume-navbar > * {
-    margin:0;
+    margin-left:10px;
+    margin-right:10px;
 }
 
 .profilepic {
     min-width: 100%;
     overflow: hidden;
 }
+
 
 .commit-container {
     display: flex;
@@ -20,6 +22,7 @@
 .inner-buttons {
     margin: 10px 0px 10px;
     font-family: Courier New, monospace;
+    min-width: 170px;
 }
 
 .vertical-line {
@@ -59,6 +62,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: lightgrey;
+    background-color: white;
 }
 
 .commit-message {

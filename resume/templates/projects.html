@@ -14,7 +14,7 @@
         <a href="{% url 'project_detail' project_number %}"
            class="btn-light">
             <img class="h-75 w-100 pb-4" src="{% static project_info.image %}">
-            <div class="tex-center">
+            <div class="tex-center text-secondary">
                 <h5 class="tex-center">{{ project_info.name }}</h5>
                 <p class="tex-center">{{ project_info.description }}</p>
                 <p class="tex-center">{{ project_info.date }}</p>
@@ -27,7 +27,7 @@
 <script>
 $(document).ready(function () {
   $(".carousel").slick({
-    speed: 2500,
+    speed: 5000,
     autoplay: true,
     autoplaySpeed: 1,
     cssEase: "linear",

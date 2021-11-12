@@ -15,9 +15,8 @@
         </span>
     </div>
     <div class="console-text"
-         data-text="mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';">
-        <pre id="typewriter">
-            {% for skill in skills %} &#10;{{skill}}{% endfor %}
+         data-text="">
+        <pre id="typewriter">mysql > SELECT Software FROM skills  WHERE Category ='Software' ORDERBY 'mastery';{% for skill in skills %}&#10;{{skill}}{% endfor %}
         </pre>
     </div>
 </div>

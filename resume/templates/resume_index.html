@@ -2,8 +2,8 @@
 
 
 {%block navbar-addons%}
-<div class="resume-navbar collapse navbar-collapse w-100 navbar-dark bg-secondary" id="navbarSupportedContent">
-    <ul class="navbar-nav mx-auto">
+<div class="collapse navbar-collapse w-100 navbar-dark bg-secondary" id="navbarSupportedContent">
+    <ul class="resume-navbar navbar-nav mx-auto">
         <li class="nav-item">
             <a class="nav-link" href="#summary">Summary</a>
         </li>
@@ -22,6 +22,8 @@
 {% block page_content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+<script src="{% static 'javascript/resume.js' %}"></script>
+
 
 <!-- Section: Summary and Education -->
 <section class="fullscreen bg-black">
@@ -49,10 +51,10 @@
 
 <!-- Section: Skills -->
 <section class="fullscreen"
-         style="background-image: url('{% static 'img/joanna-kosinska.jpg' %}');">
+         style="background-image: url('{% static 'img/pexels-pixabay.jpg' %}');">
     <div class="container m-5">
         <div class="row">
-            <div class="col-md-8 mx-auto text-center">
+            <div class="col-12 col-lg-8 mx-auto text-center">
                 <h1 class="p-2" id="skills">Skills</h1>
                 <div class="text-start">
                     {% include "skills-console.html" %}
@@ -64,21 +66,25 @@
 <!-- Section: Skills -->
 
 <!-- Section: Experience -->
-<section class="fullscreen2">
-    <h4 class="p-5" id="experience"><span class="iconify" data-icon="octicon:repo-24"></span> <span class="text-primary">Christian Ransom/Experience</span>
-    </h4>
+<section class="fullscreen2"
+         style="background-image: url('{% static 'img/rm380-16.jpg' %}');">
 
-    <div class="branch-button">
+
+    <h4 class="ms-5" id="experience"><span class="iconify" data-icon="octicon:repo-24"></span> <span
+            class="text-primary">Christian Ransom/<strong>Experience</strong></span></h4>
+    <div class="ms-5 branch-button">
         <span class="iconify" data-icon="fluent:branch-fork-16-regular"></span>
         dev
         <span class="iconify" data-icon="ant-design:caret-down-outlined"></span>
     </div>
     {% for experience_number, experience_info in experience.items %}
     <div class="container">
-        <div class="timeline-icon">
+        <span class="timeline-icon ms-n5">
             <span class="iconify" data-icon="octicon:commit-24"></span>
+        </span>
+        <span>
             <h7>Commits on <b>{{experience_info.company}} - <u>{{experience_info.title}}</u></b></h7>
-        </div>
+        </span>
         <div>
             <div class="container vertical-line">
                 <div class="inner-container">
@@ -96,8 +102,8 @@
                                 <b>Christian Ransom</b> committed on {{experience_info.date}}
                             </div>
                         </div>
-                        <div class="inner-buttons">
-                            <div class="btn btn-light border">
+                        <div class="">
+                            <div class="btn btn-light border inner-buttons">
                                 <span class="iconify " data-icon="bx:bx-copy"></span>
                                 <span class="text-primary vertical-divider ">{{id}}</span>
                                 <span class="iconify" data-icon="octicon:code-16"></span>
@@ -113,10 +119,13 @@
 </section>
 <!-- Section: Experience -->
 
+<section class="fullscreen2"
+         style="background-image: url('{% static 'img/nordwood.jpg' %}');">
+    <div class="text-center text-white">
+        <h1 id="projects" class="p-4">Projects</h1>
+        {% include "projects.html" %}
+    </div>
+</section>
 
-<h4 id="projects">Projects</h4>
-{% include "projects.html" %}
-
-<br/><br/><br/>
 
 {% endblock %}
