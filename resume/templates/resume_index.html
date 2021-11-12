@@ -1,32 +1,27 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {%block navbar-addons%}
-<div class="collapse navbar-collapse w-100 navbar-dark bg-secondary" id="navbarSupportedContent">
-    <ul class="resume-navbar navbar-nav mx-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#summary">Summary</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#skills">Skills</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#experience">Experience</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-        </li>
-    </ul>
+<div class="resume-navbar fixed-top bg-black">
+    <div class="d-flex justify-content-center resume-navbar-items">
+        <a class="nav-link" href="#summary">Summary</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+    </div>
 </div>
 {%endblock navbar-addons%}
+
 {% block page_content %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+
 <script src="{% static 'javascript/resume.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/resume.css' %}">
+
 
 
 <!-- Section: Summary and Education -->
-<section class="fullscreen bg-black">
+<a class="anchor" id="summary"></a>
+<section class="fullscreen bg-black fullscreen-top">
     <div class="container mx-auto mt-auto p-0">
         <div class="row align-items-center">
             <div class="col-12 col-lg-6 ms-0 p-0 m-0">
@@ -35,7 +30,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 p-4 text-white">
-                <h1 id="summary" class="py-4">Summary</h1>
+                <h1 class="py-4">Summary</h1>
                 <h5>Quality-focused software developer who loves to tackle difficult problems that require complex
                     solutions.
                     Strives to not only solve problems creatively, but to always discover the best possible
@@ -50,12 +45,13 @@
 <!-- Section: Summary and Education -->
 
 <!-- Section: Skills -->
-<section class="fullscreen"
+<a class="anchor" id="skills"></a>
+<section class="fullscreen fullscreen-resume"
          style="background-image: url('{% static 'img/pexels-pixabay.jpg' %}');">
     <div class="container m-5">
         <div class="row">
             <div class="col-12 col-lg-8 mx-auto text-center">
-                <h1 class="p-2" id="skills">Skills</h1>
+                <h1 class="p-2">Skills</h1>
                 <div class="text-start">
                     {% include "skills-console.html" %}
                 </div>
@@ -66,11 +62,10 @@
 <!-- Section: Skills -->
 
 <!-- Section: Experience -->
+<a class="anchor" id="experience"></a>
 <section class="fullscreen2"
          style="background-image: url('{% static 'img/rm380-16.jpg' %}');">
-
-
-    <h4 class="ms-5" id="experience"><span class="iconify" data-icon="octicon:repo-24"></span> <span
+    <h4 class="ms-5"><span class="iconify" data-icon="octicon:repo-24"></span> <span
             class="text-primary">Christian Ransom/<strong>Experience</strong></span></h4>
     <div class="ms-5 branch-button">
         <span class="iconify" data-icon="fluent:branch-fork-16-regular"></span>
@@ -119,13 +114,16 @@
 </section>
 <!-- Section: Experience -->
 
+<!-- Section: Projects -->
+<a class="anchor" id="projects"></a>
 <section class="fullscreen2"
          style="background-image: url('{% static 'img/nordwood.jpg' %}');">
     <div class="text-center text-white">
-        <h1 id="projects" class="p-4">Projects</h1>
+        <h1 class="p-4">Projects</h1>
         {% include "projects.html" %}
     </div>
 </section>
+<!-- Section: Projects -->
 
 
 {% endblock %}
