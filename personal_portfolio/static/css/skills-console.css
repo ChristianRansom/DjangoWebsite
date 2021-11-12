@@ -3,6 +3,12 @@
     min-height: 70vh;
 }
 
+.header-title {
+    overflow: hidden;
+    white-space: nowrap;
+    display: table;
+}
+
 .header-bar {
     background-color: lightgrey;
     padding-left:10px;

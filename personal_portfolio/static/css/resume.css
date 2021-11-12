@@ -1,9 +1,9 @@
-.fullscreen-resume {
+.fullscreen-skills {
     min-height: 79vh;
 }
 
 .fullscreen-top {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 a.anchor {
@@ -15,6 +15,7 @@ a.anchor {
 
 .resume-navbar {
     margin-top:6vh;
+    z-index: 0;
 }
 
 .resume-navbar-items > * {
@@ -23,9 +24,15 @@ a.anchor {
 }
 
 .profilepic {
-    min-width: 100%;
+    max-width: 100%;
+    min-height: 90vh;
     overflow: hidden;
 }
+
+.image-wrapper {
+    max-width: 100%;
+}
+
 
 .commit-container {
     display: flex;
