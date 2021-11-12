@@ -4,12 +4,14 @@ body {
     font-weight: 400;
 }
 
-
+.main-navbar {
+    min-height: 5vh;
+}
 
 .fullscreen {
     display: flex;
     align-items: center;
-    min-height: 95vh;
+    min-height: 100vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;

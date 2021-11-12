@@ -1,9 +1,23 @@
-.fullscreen {
-    min-height: 90vh;
+.fullscreen-resume {
+    min-height: 79vh;
 }
 
+.fullscreen-top {
+    height: 100vh;
+}
 
-.resume-navbar > * {
+a.anchor {
+    display: block;
+    position: relative;
+    top: -10vh;
+    visibility: hidden;
+}
+
+.resume-navbar {
+    margin-top:6vh;
+}
+
+.resume-navbar-items > * {
     margin-left:10px;
     margin-right:10px;
 }
@@ -12,7 +26,6 @@
     min-width: 100%;
     overflow: hidden;
 }
-
 
 .commit-container {
     display: flex;
