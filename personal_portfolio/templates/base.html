@@ -35,57 +35,60 @@
 
 
 <!-- Section: Navigation Bar -->
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-0">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse w-100 px-5 align-self-center"
-         id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item m-0 h4 {% if '/dashboard/' in request.path %}active"
-                style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
-                <a class="nav-link" href="{% url 'dashboard' %}">Home</a>
-            </li>
-            <li class="nav-item m-0 h4 {% if '/resume/' in request.path %}active"
-                style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
-                <a class="nav-link" href="{% url 'resume_index' %}">Resume</a>
-            </li>
-            <li class="nav-item m-0 h4 {% if '/blog/' in request.path %}active"
-                style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
-                <a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
-            </li>
-            <li class="nav-item m-0 h4 {% if '/jobscraper/' in request.path %}active"
-                style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
-                <a class="nav-link" href="{% url 'job_scraper' %}">Job Scraper</a>
-            </li>
-            <li class="nav-item m-0 h4 {% if '/fun/' in request.path %}active"
-                style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
-                <a class="nav-link" href="{% url 'fun' %}">Fun</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ms-auto align-self-center">
-            <li class="social-links">
-                <a href="https://github.com/ChristianRansom" class="me-4 text-reset">
-                    <span class="iconify" data-icon="codicon:github-inverted"></span>
-                </a>
-                <a href="https://dev.to/christianransom" class="me-4 text-reset">
-                    <span class="iconify" data-icon="fa-brands:dev"></span>
-                </a>
-                <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
-                    <span class="iconify" data-icon="brandico:linkedin-rect"></span>
-                </a>
-                {% if user.is_authenticated %}
-                <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
-                {% else %}
-                <span class="glyphicon glyphicon-log-in"></span><a href="{% url 'login' %}">Login</a>
-                {% endif %}
-            </li>
-        </ul>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light p-0 main-navbar">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100 px-5"
+             id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item m-0 h4 {% if '/dashboard/' in request.path %}active"
+                    style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+                    <a class="nav-link" href="{% url 'dashboard' %}">Home</a>
+                </li>
+                <li class="nav-item m-0 h4 {% if '/resume/' in request.path %}active"
+                    style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+                    <a class="nav-link" href="{% url 'resume_index' %}">Resume</a>
+                </li>
+                <li class="nav-item m-0 h4 {% if '/blog/' in request.path %}active"
+                    style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+                    <a class="nav-link" href="{% url 'blog_index' %}">Blog</a>
+                </li>
+                <li class="nav-item m-0 h4 {% if '/jobscraper/' in request.path %}active"
+                    style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+                    <a class="nav-link" href="{% url 'job_scraper' %}">Job Scraper</a>
+                </li>
+                <li class="nav-item m-0 h4 {% if '/fun/' in request.path %}active"
+                    style="background-color: rgba(0, 0, 0, 0.20){% endif %}">
+                    <a class="nav-link" href="{% url 'fun' %}">Fun</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto align-self-center">
+                <li class="social-links">
+                    <a href="https://github.com/ChristianRansom" class="me-4 text-reset">
+                        <span class="iconify" data-icon="codicon:github-inverted"></span>
+                    </a>
+                    <a href="https://dev.to/christianransom" class="me-4 text-reset">
+                        <span class="iconify" data-icon="fa-brands:dev"></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/christian-ransom-4290a3b3/" class="me-4 text-reset">
+                        <span class="iconify" data-icon="brandico:linkedin-rect"></span>
+                    </a>
+                    {% if user.is_authenticated %}
+                    <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                    <span class="glyphicon glyphicon-log-in"></span><a href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+
     </div>
-    {%block navbar-addons%}
-    {%endblock navbar-addons%}
 </nav>
+{%block navbar-addons%}
+{%endblock navbar-addons%}
 
 {% block page_content %}
 {% endblock %}
