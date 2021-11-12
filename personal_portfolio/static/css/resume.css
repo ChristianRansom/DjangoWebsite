@@ -25,14 +25,13 @@ a.anchor {
 
 .profilepic {
     max-width: 100%;
-    min-height: 90vh;
     overflow: hidden;
 }
-
-.image-wrapper {
+.profilepic2 {
     max-width: 100%;
+    min-height: 75vh;
+    overflow: hidden;
 }
-
 
 .commit-container {
     display: flex;

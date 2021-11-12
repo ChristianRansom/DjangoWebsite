@@ -85,7 +85,7 @@
          style="background-image: url('{% static 'img/caspar-camille.jpg' %}');">
     <div class="container-fluid">
         <div class="row align-items-center">
-            <div class="col-12 col-lg text-light">
+            <div class="col-12 col-lg text-light p-5">
                 <div class="card-wrapper">
                     <div class="card-box">
                         <h1 class="card-title mb-4">
@@ -101,16 +101,15 @@
                             {% endif %}
                             {% endfor %}
                         </ul>
-
-                        <div class="my-4">
+                        <div class="my-4 mx-auto">
                             <a class="btn btn-primary" href="{% url 'resume_index' %}#skills">See more</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 p-5 m-5">
-                <div class="image-wrapper">
-                    <img src='{% static "img/profilepic1.png" %}' alt="Skills">
+            <div class="col-12 col-lg-6 p-5 mx-auto">
+                <div>
+                    <img class="image-wrapper" src='{% static "img/profilepic1.png" %}' alt="Skills">
                 </div>
             </div>
         </div>
