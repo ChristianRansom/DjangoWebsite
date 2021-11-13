@@ -1,14 +1,10 @@
 {% load static %}
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
-
-<div class="carousel">
+<div class="owl-carousel">
     {% for project_number, project_info in projects.items %}
     <div class="item rounded border-dark p-4" style="min-height: 50vh;">
         <a href="{% url 'project_detail' project_number %}"
@@ -24,24 +20,30 @@
     {% endfor %}
 </div>
 
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/owlcarousel/owl.carousel.min.js' %}"></script>
 <script>
-$(document).ready(function () {
-  $(".carousel").slick({
-    speed: 5000,
-    autoplay: true,
-    autoplaySpeed: 1,
-    cssEase: "linear",
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    dots: false,
-    prevArrow: false,
-    nextArrow: false,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-  });
+$(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        autoplay:true,
+        autoplayHoverPause:true,
+        autoplayTimeout:4000,
+        autoplaySpeed:2000,
+        margin:10,
+        nav:false,
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:2
+            },
+            1000:{
+                items:3
+            }
+        }
+    })
 });
-//https://kenwheeler.github.io/slick/
-
-
-
 </script>
