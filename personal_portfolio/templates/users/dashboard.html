@@ -116,14 +116,15 @@
     </div>
 </section>
 
-
+<!-- Section: Projects -->
+<a class="anchor" id="projects"></a>
 <section class="fullscreen2"
          style="background-image: url('{% static 'img/pexels-lorenzo.jpg' %}');">
-    <div class="text-center my-5">
-        <h1>Projects</h1>
-        <h3>Check out some of my projects</h3>
+    <div class="text-center">
+        <h1 class="p-0">Projects</h1>
+        {% include "projects.html" %}
     </div>
-    {% include "projects.html" %}
 </section>
+<!-- Section: Projects -->
 
 {% endblock %}

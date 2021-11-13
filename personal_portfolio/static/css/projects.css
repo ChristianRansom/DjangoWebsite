@@ -4,7 +4,7 @@
   border-left-color:#eed;
   border-right-color:#eed;
   border-top-color:#ccb;
-  height:50vh;
+  height:30vh;
 }
 
 .frame {
@@ -44,11 +44,35 @@
     top:-1.5vmin;
 }
 
-.project-text > *{
+.project-text > * {
     text-decoration:none!important;
     color:black;
 }
 
 a:link {
     text-decoration:none!important;
+}
+
+.owl-prev > * {
+    display: inline-block;
+    font-size: 100px;
+    height:10px;
+}
+
+.owl-next > * {
+    display: inline-block;
+    font-size: 100px;
+    height:10px;
+}
+
+.owl-prev {
+    height:100px;
+}
+
+.owl-next {
+    height:100px;
+}
+
+.owl-nav {
+    height:20px;
 }

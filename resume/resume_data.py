@@ -106,7 +106,7 @@ experience = {
     8: {
         'company': 'Bon Appétit Management Company ',
         'title': 'Food Service Worker',
-        'date': 'August 2017 - November 2017',
+        'date': 'January 2015 - May 2017',
         'explanation': {
             '091v0yh':'Severed in multiple positions, from the dish-room to serving food',
         }
