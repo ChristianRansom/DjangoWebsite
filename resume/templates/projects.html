@@ -3,20 +3,20 @@
 
 <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.carousel.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/owlcarousel/owl.theme.default.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
 
 <div class="owl-carousel">
     {% for project_number, project_info in projects.items %}
-    <div class="item rounded border-dark p-4" style="min-height: 50vh;">
-        <a href="{% url 'project_detail' project_number %}"
-           class="btn-light">
-            <img class="h-75 w-100 pb-4" src="{% static project_info.image %}">
-            <div class="tex-center text-secondary">
-                <h5 class="tex-center">{{ project_info.name }}</h5>
-                <p class="tex-center">{{ project_info.description }}</p>
-                <p class="tex-center">{{ project_info.date }}</p>
+        <a href="{% url 'project_detail' project_number %}">
+            <div class="frame">
+                <img class="frame-picture " src="{% static project_info.image %}">
+            </div>
+            <div class="text-center project-text">
+                <h4 class="">{{ project_info.name }}</h4>
+                <h6 class="">{{ project_info.description }}</h6>
+                <h6 class="">{{ project_info.date }}</h6>
             </div>
         </a>
-    </div>
     {% endfor %}
 </div>
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
         autoplayTimeout:4000,
         autoplaySpeed:2000,
         margin:10,
-        nav:false,
+        nav:true,
         dots:false,
         responsive:{
             0:{
