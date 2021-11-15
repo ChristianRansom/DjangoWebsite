@@ -77,9 +77,9 @@
                         <span class="iconify" data-icon="brandico:linkedin-rect"></span>
                     </a>
                     {% if user.is_authenticated %}
-                    <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
+                        <span class="glyphicon glyphicon-log-out"></span><a href="{% url 'logout' %}">Logout</a>
                     {% else %}
-                    <span class="glyphicon glyphicon-log-in"></span><a href="{% url 'login' %}">Login</a>
+                        <span class="glyphicon glyphicon-log-in"></span><a href="{% url 'login' %}">Login</a>
                     {% endif %}
                 </li>
             </ul>
