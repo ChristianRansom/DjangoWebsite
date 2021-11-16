@@ -4,6 +4,7 @@ from django.urls import reverse
 from users.forms import CustomUserCreationForm
 from resume.resume_data import *
 from blog.models import Post
+from django.contrib.auth.forms import UserCreationForm
 
 
 def dashboard(request):
@@ -18,16 +19,12 @@ def dashboard(request):
     return render(request, "users/dashboard.html", context)
 
 def register(request):
-    if request.method == "GET":
-        return render(
-            request, "users/register.html",
-            {"form": CustomUserCreationForm}
-        )
-    elif request.method == "POST":
+    if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.backend = "django.contrib.auth.backends.ModelBackend"
-            user.save()
+            user = form.save()
             login(request, user)
-            return redirect(reverse("dashboard"))
+            return redirect('dashboard')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
