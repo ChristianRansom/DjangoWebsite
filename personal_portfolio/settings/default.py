@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'jobscraper',
     'widget_tweaks',
     'resume',
-    'fun'
+    'fun',
+    'captcha',
     #'hello_world',
 ]
 
@@ -162,3 +163,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 SOCIAL_AUTH_GITHUB_KEY = "2f51a6dcd04d1572a8b1" #os.environ.get("SOCIAL_AUTH_GITHUB_KEY")
 SOCIAL_AUTH_GITHUB_SECRET = "29ee925782593d446c190414bd65b673017a2e61" #os.environ.get("SOCIAL_AUTH_GITHUB_SECRET")
+
+RECAPTCHA_PUBLIC_KEY = "6Le_sTgdAAAAAIHVVPqp6swYypITz0qM0_jnRYCP"
+RECAPTCHA_PRIVATE_KEY = "6Le_sTgdAAAAADWsSI4h__P9RwnwS-iDa0IjZ10-"
