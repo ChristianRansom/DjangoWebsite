@@ -31,13 +31,3 @@ class JobScraperForm(forms.Form):
         if not job_search and not search_size:
             print("raising validation error!")
             raise forms.ValidationError('Please fill in the required fields')
-        
-        
-        
-#fields
-#Job search
-#Location
-#Search size
-#whitelist
-#blacklist
-#common blacklist and whitelist items
