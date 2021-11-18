@@ -28,3 +28,7 @@ def register(request):
     else:
         form = CustomUserCreationForm()
     return render(request, 'users/register.html', {'form': form})
+
+
+def user_settings(request):
+    return render(request, 'users/user_settings.html', {})
