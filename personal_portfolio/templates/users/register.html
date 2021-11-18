@@ -1,13 +1,42 @@
-{% extends 'base.html' %}
+<section class="register-section fullscreen">
+    <div class="form-box">
+        <h2>Register</h2>
+        <form method="post" id="register-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="input-box">
+                {{ form.username }}
+                {{ form.username.errors }}
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+            </div>
+            <div class="input-box">
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+                <label for="{{ form.password1.id_for_label }}">Password:</label>
+            </div>
+            <div class="input-box">
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+                <label for="{{ form.password2.id_for_label }}">Password confirmation::</label>
+            </div>
+            <div class="input-box">
+                {{ form.captcha }}
+                {{ form.captcha.errors }}
+            </div>
+            <a href="#" id="submit" onclick="myFunction()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </a>
+        </form>
 
-{% block page_content %}
-<h2>Register</h2>
-
-<form method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Register">
-</form>
-
-<a href="{% url 'login' %}">Back to login</a>
-{% endblock %}
+        <a href="{% url 'login' %}">Back to login</a></div>
+</section>
+<script>
+function myFunction() {
+    document.getElementById("register-form").submit();
+}
+</script>
+{% include 'registration/base_registration.html' %}
