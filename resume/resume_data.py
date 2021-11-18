@@ -18,16 +18,17 @@ skill_list = {
     'PHP': 3,
 }
 display_size = 21
+display_size2 = 11
 
 skills = []
-skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
-skills.append("|" + str("skill").center(display_size) + "|" + str("proficiency").center(display_size) + "|")
-skills.append("+" + "-"*display_size + "+" + "-"*display_size + "+")
+skills.append("+" + "-"*display_size + "+" + "-"*display_size2 + "+")
+skills.append("|" + str("skill").center(display_size) + "|" + str("proficiency").center(display_size2) + "|")
+skills.append("+" + "-"*display_size + "+" + "-"*display_size2 + "+")
 
 for skill, mastery in skill_list.items():
-    skills.append("|" + str(skill).center(display_size) + "|" + str(mastery).center(display_size) + "|")
+    skills.append("|" + str(skill).center(display_size) + "|" + str(mastery).center(display_size2) + "|")
 
-skills.append("+" + "-"*display_size + "|" + "-"*display_size + "+")
+skills.append("+" + "-"*display_size + "|" + "-"*display_size2 + "+")
 skills.append(str(len(skill_list)) + " rows in set (0.05 sec)")
 
 
