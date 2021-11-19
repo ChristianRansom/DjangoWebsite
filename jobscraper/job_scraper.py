@@ -15,6 +15,8 @@ import nltk
 import random
 from urllib.request import Request, urlopen
 
+nltk.download('stopwords')
+nltk.download('punkt')
 
 def scrape_jobs(
         job_search="software+developer",
