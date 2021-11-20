@@ -14,21 +14,14 @@ a.anchor {
 }
 
 .resume-navbar {
-    position: sticky;
-    position: -webkit-sticky;
     display: block;
     top: 6vh;
     z-index: 1000;
 }
 
-.resume-navbar-items > * {
-    margin-left:10px;
-    margin-right:10px;
-}
-
-
-.profilepic2 {
-    min-width: 100%;
+.profilepic {
+    min-width: 99%;
+    max-width: 100%;
     height:auto;
     overflow: hidden;
 }

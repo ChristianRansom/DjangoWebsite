@@ -2,7 +2,7 @@
 {% load static %}
 
 {%block navbar-addons%}
-<div class="resume-navbar bg-black">
+<div class="resume-navbar bg-black  sticky-sm-top">
     <div class="d-flex justify-content-center resume-navbar-items">
         <a class="nav-link" href="#summary">Summary</a>
         <a class="nav-link" href="#skills">Skills</a>
@@ -22,12 +22,10 @@
 <!-- Section: Summary and Education -->
 <a class="anchor" id="summary"></a>
 <section class="fullscreen bg-black fullscreen-top">
-    <div class="container mt-auto p-0">
-        <div class="row align-items-center profilepic">
+    <div class="container-fluid mt-auto p-0 m-0">
+        <div class="row align-items-center" style="margin: auto">
             <div class="col-12 col-lg-6 mt-auto p-0 m-0">
-                <div class="">
-                    <img class="profilepic2" src='{% static "img/profilepic3.png" %}' alt="Skills">
-                </div>
+                <img class="profilepic" src='{% static "img/profilepic3.png" %}' alt="Profile Picture">
             </div>
             <div class="col-12 col-lg-6 p-4 text-white">
                 <h1 class="py-4">Summary</h1>
