@@ -6,8 +6,9 @@ body {
 
 .main-navbar {
     min-height: 5vh;
-    position: sticky;
     position: -webkit-sticky;
+    position: sticky;
+    display: block;
     top: 0;
 }
 

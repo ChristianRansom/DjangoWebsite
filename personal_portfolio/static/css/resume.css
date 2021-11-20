@@ -16,6 +16,7 @@ a.anchor {
 .resume-navbar {
     position: sticky;
     position: -webkit-sticky;
+    display: block;
     top: 6vh;
     z-index: 1000;
 }
