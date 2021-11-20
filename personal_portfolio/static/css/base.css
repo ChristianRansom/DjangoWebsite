@@ -6,6 +6,8 @@ body {
 
 .main-navbar {
     min-height: 5vh;
+    position: sticky;
+    top: 0;
 }
 
 .image-wrapper {

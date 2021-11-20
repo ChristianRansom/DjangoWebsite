@@ -3,7 +3,7 @@
 }
 
 .fullscreen-top {
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 a.anchor {
@@ -14,7 +14,8 @@ a.anchor {
 }
 
 .resume-navbar {
-    padding-top:6vh;
+    position: sticky;
+    top: 6vh;
 }
 
 .resume-navbar-items > * {
@@ -22,13 +23,10 @@ a.anchor {
     margin-right:10px;
 }
 
-.profilepic {
-    max-width: 100%;
-    overflow: hidden;
-}
+
 .profilepic2 {
-    max-width: 100%;
-    min-height: 75vh;
+    min-width: 100%;
+    height:auto;
     overflow: hidden;
 }
 
