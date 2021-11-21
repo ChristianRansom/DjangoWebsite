@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -21,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=kp=ms_jy%+=)3vta$!0s%vlnnw)^48%e3#_(%*$#u8+8hg5-#'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -132,7 +135,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-print("static_root: " + str(STATIC_ROOT))
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'personal_portfolio/static'),
 )
@@ -161,8 +163,8 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
     "social_core.backends.github.GithubOAuth2",
 ]
-SOCIAL_AUTH_GITHUB_KEY = "2f51a6dcd04d1572a8b1" #os.environ.get("SOCIAL_AUTH_GITHUB_KEY")
-SOCIAL_AUTH_GITHUB_SECRET = "29ee925782593d446c190414bd65b673017a2e61" #os.environ.get("SOCIAL_AUTH_GITHUB_SECRET")
+SOCIAL_AUTH_GITHUB_KEY = os.environ.get("SOCIAL_AUTH_GITHUB_KEY")
+SOCIAL_AUTH_GITHUB_SECRET = os.environ.get("SOCIAL_AUTH_GITHUB_SECRET")
 
-RECAPTCHA_PUBLIC_KEY = "6Le_sTgdAAAAAIHVVPqp6swYypITz0qM0_jnRYCP"
-RECAPTCHA_PRIVATE_KEY = "6Le_sTgdAAAAADWsSI4h__P9RwnwS-iDa0IjZ10-"
+RECAPTCHA_PUBLIC_KEY = os.environ.get("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
