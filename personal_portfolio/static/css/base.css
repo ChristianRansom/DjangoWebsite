@@ -4,6 +4,16 @@ body {
     font-weight: 400;
 }
 
+.construction-sign {
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 7vh;
+}
+
 .main-navbar {
     min-height: 5vh;
     display: block;
