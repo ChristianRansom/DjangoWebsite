@@ -5,20 +5,24 @@
 
 
 <!-- Section: Header Intro -->
-<section class="fullscreen intro-header"
-         style="background-image: url('{% static 'img/header.jpg' %}');">
-    <div class="d-flex flex-row justify-content-end m-3">
-        <div class="col-12 col-lg-6 text-light">
-            <h1><strong>Productive Programmer</strong></h1>
-            <h3>High Value Programming</h3>
-            <div class="mx-auto">
-                Hi, my name is Christian Ransom. I'm a passionate software developer who constantly seeks out how I can
-                be more intentionally productive. This site is the place where I write about things I've learned to
-                increase my productivity in either quality or quantity as well as other interests of mine.
-            </div>
-            <div class="mt-3">
-                <a class="btn btn-warning" href="{% url 'resume_index' %}">Check Out My CV</a>
-                <a class="btn btn-warning-outline" style="color: #ffe161;" href="{% url 'blog_index' %}">Learn More</a>
+<section class="parallax-container fullscreen">
+    <img src="{% static 'img/header.jpg' %}" data-speed="-1" class="img-parallax">
+    <div class="parallax-content">
+        <div class="d-flex flex-row justify-content-end m-3">
+            <div class="col-12 col-lg-6 text-light">
+                <h1><strong>Productive Programmer</strong></h1>
+                <h3>High Value Programming</h3>
+                <div class="mx-auto">
+                    Hi, my name is Christian Ransom. I'm a passionate software developer who constantly seeks out how I
+                    can
+                    be more intentionally productive. This site is the place where I write about things I've learned to
+                    increase my productivity in either quality or quantity as well as other interests of mine.
+                </div>
+                <div class="mt-3">
+                    <a class="btn btn-warning" href="{% url 'resume_index' %}">Check Out My CV</a>
+                    <a class="btn btn-warning-outline" style="color: #ffe161;" href="{% url 'blog_index' %}">Learn
+                        More</a>
+                </div>
             </div>
         </div>
     </div>
@@ -27,89 +31,98 @@
 
 
 <!-- Section: Blog -->
-<section class="fullscreen"
-         style="background-image: url('{% static 'img/rm380-16.jpg' %}');">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-6">
-                <div class="card-wrapper">
-                    <div class="card-box align-left">
-                        <h1 class="card-title mb-4"><strong>What is Productive Programming?</strong>
-                        </h1>
-                        <p class="mb-4"><strong>Productive programming is efficiently using
-                            your time and energy to produce valuable code</strong>. As a software developer, <strong>my
-                            code is my product. </strong>I want the highest return in value for the time I spend
-                            programming. That might mean finding ways to output code faster, or writing quality code
-                            that is easier to maintain in the long run. It might also be trying to find the optimal
-                            balance between the quality and quantity of code.&nbsp;
+<section class="parallax-container fullscreen">
+    <img src="{% static 'img/rm380-16.jpg' %}" data-speed="-1" class="img-parallax">
+    <div class="parallax-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6">
+                    <div class="card-wrapper">
+                        <div class="card-box align-left">
+                            <h1 class="card-title mb-4"><strong>What is Productive Programming?</strong>
+                            </h1>
+                            <p class="mb-4"><strong>Productive programming is efficiently using
+                                your time and energy to produce valuable code</strong>. As a software developer,
+                                <strong>my
+                                    code is my product. </strong>I want the highest return in value for the time I spend
+                                programming. That might mean finding ways to output code faster, or writing quality code
+                                that is easier to maintain in the long run. It might also be trying to find the optimal
+                                balance between the quality and quantity of code.&nbsp;
 
-                            <br><br><strong>Being a productive programmer requires carefully analyzing my work and my
-                                end goals</strong>. It includes
-                            being resourceful and using tools and technology properly, from learning vim, and how to
-                            google, and even how to take breaks effectively. My goal is to always be improving what I
-                            do, and how I do it.<br><br>
-                        </p>
-                        <div class="">
-                            <a class="btn btn-primary my-4"  href="{% url 'blog_index' %}">Check
-                                out my blog</a>
+                                <br><br><strong>Being a productive programmer requires carefully analyzing my work and
+                                    my
+                                    end goals</strong>. It includes
+                                being resourceful and using tools and technology properly, from learning vim, and how to
+                                google, and even how to take breaks effectively. My goal is to always be improving what
+                                I
+                                do, and how I do it.<br><br>
+                            </p>
+                            <div class="">
+                                <a class="btn btn-primary my-4" href="{% url 'blog_index' %}">Check
+                                    out my blog</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <h1>My Blog</h1>
-                <h4>Featured Article</h4>
-                <h6>Title</h6>
-                <p>Coming Soon...</p>
-                <h4>Most recent articles</h4>
-                {% for post in posts %}
-                <h6><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h6>
-                <small>
-                    {{ post.created_on.date }} |&nbsp;
-                    Categories:&nbsp;
-                    {% for category in post.categories.all %}
-                    <a href="{% url 'blog_category' category.name %}">
-                        {{ category.name }}
-                    </a>&nbsp;
+                <div class="col-12 col-lg-6">
+                    <h1>My Blog</h1>
+                    <h4>Featured Article</h4>
+                    <h6>Title</h6>
+                    <p>Coming Soon...</p>
+                    <h4>Most recent articles</h4>
+                    {% for post in posts %}
+                    <h6><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h6>
+                    <small>
+                        {{ post.created_on.date }} |&nbsp;
+                        Categories:&nbsp;
+                        {% for category in post.categories.all %}
+                        <a href="{% url 'blog_category' category.name %}">
+                            {{ category.name }}
+                        </a>&nbsp;
+                        {% endfor %}
+                    </small>
+                    <p>{{ post.body | slice:":200" }}...</p>
                     {% endfor %}
-                </small>
-                <p>{{ post.body | slice:":200" }}...</p>
-                {% endfor %}
+                </div>
             </div>
         </div>
     </div>
 </section>
+<!-- Section: Blog -->
 
 <!-- Section: Work and Skills -->
-<section class="fullscreen"
-         style="background-image: url('{% static 'img/caspar-camille.jpg' %}');">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-12 col-lg text-light p-5">
-                <div class="card-wrapper">
-                    <div class="card-box">
-                        <h1 class="card-title mb-4">
-                            <strong>Skills</strong></h1>
-                        <p class="mb-4">
-                            Currently I work as a field technician for Zutek. I install technical equipment like servers
-                            and terminals, as well as troubleshoot and fix equipment.</p>
-                        <h3 class="mb-4">Top Skills</h3>
-                        <ul>
-                            {% for skill in skill_list %}
-                            {% if forloop.counter0 < 5 %}
-                            <li class="h5">{{skill}}</li>
-                            {% endif %}
-                            {% endfor %}
-                        </ul>
-                        <div class="my-4 mx-auto">
-                            <a class="btn btn-primary" href="{% url 'resume_index' %}#skills">See more</a>
+<section class="fullscreen parallax-container">
+    <img src="{% static 'img/caspar-camille.jpg' %}" data-speed="-1" class="img-parallax">
+    <div class="parallax-content">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg text-light p-5">
+                    <div class="card-wrapper">
+                        <div class="card-box">
+                            <h1 class="card-title mb-4">
+                                <strong>Skills</strong></h1>
+                            <p class="mb-4">
+                                Currently I work as a field technician for Zutek. I install technical equipment like
+                                servers
+                                and terminals, as well as troubleshoot and fix equipment.</p>
+                            <h3 class="mb-4">Top Skills</h3>
+                            <ul>
+                                {% for skill in skill_list %}
+                                {% if forloop.counter0 < 5 %}
+                                <li class="h5">{{skill}}</li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                            <div class="my-4 mx-auto">
+                                <a class="btn btn-primary" href="{% url 'resume_index' %}#skills">See more</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6 p-5 mx-auto">
-                <div>
-                    <img class="image-wrapper" src='{% static "img/profilepic1.png" %}' alt="Skills">
+                <div class="col-12 col-lg-6 p-5 mx-auto">
+                    <div>
+                        <img class="image-wrapper" src='{% static "img/profilepic1.png" %}' alt="Skills">
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,5 +139,7 @@
     </div>
 </section>
 <!-- Section: Projects -->
+
+<script src="{% static 'javascript/dashboard.js' %}"></script>
 
 {% endblock %}

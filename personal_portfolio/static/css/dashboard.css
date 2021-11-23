@@ -1,4 +1,24 @@
-/*! Full-screen */
-.intro-header {
 
+
+.parallax-container{
+  position: relative;
+  overflow: hidden;
 }
+
+.parallax-content{
+  position: relative;
+  display: block;
+}
+
+.img-parallax {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  pointer-events: none;
+  width: 140%; /* image box size as % of container, see step 1 */
+  height: 140%;
+  object-fit: cover;
+}
+
