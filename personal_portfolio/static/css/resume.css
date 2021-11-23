@@ -22,7 +22,8 @@ a.anchor {
 .profilepic {
     min-width: 99%;
     max-width: 100%;
-    height:auto;
+    margin-top: 10vh;
+    height: auto;
     overflow: hidden;
 }
 
