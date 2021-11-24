@@ -1,4 +1,3 @@
-
 <section class="login-section fullscreen">
     <div class="form-box">
         <h2>Login</h2>
@@ -8,12 +7,12 @@
             <div class="input-box" id="username">
                 {{ form.username }}
                 {{ form.username.errors }}
-                <label for="{{ form.username.id_for_label }}">Username:</label>
+                <label for="{{ form.username.id_for_label }}">Username</label>
             </div>
             <div class="input-box" id="password">
                 {{ form.password }}
                 {{ form.password.errors }}
-                <label for="{{ form.password.id_for_label }}">Password:</label>
+                <label for="{{ form.password.id_for_label }}">Password</label>
             </div>
             <a href="#" id="submit" onclick="myFunction()">
                 <span></span>
@@ -24,8 +23,9 @@
             </a>
         </form>
         <a href="{% url 'password_reset' %}">Forgot Password?</a>
-        <a href="{% url 'social:begin' 'github' %}">Sign in with GitHub</a>
-        <a href="{% url 'google_login' %}">Sign in with Google</a>
+        {% include 'registration/google_signin.html' %}
+        {% include 'registration/github_signin.html' %}
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
     </div>
 </section>
 
@@ -33,6 +33,7 @@
 function myFunction() {
     document.getElementById("login-form").submit();
 }
+
 </script>
 
 {% include 'registration/base_registration.html' %}
