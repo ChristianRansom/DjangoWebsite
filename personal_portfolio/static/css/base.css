@@ -7,11 +7,11 @@ body {
 .construction-sign {
     display: flex;
     align-items: center;
-    height: 40vh;
+    min-height: 50vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 7vh;
+    margin-top: 10vh;
 }
 
 .main-navbar {
