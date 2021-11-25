@@ -1,5 +1,5 @@
-<section class="register-section fullscreen">
-    <div class="form-box">
+<section class="register-section fullscreen" style="height:120vh;">
+    <div class="form-box" style="margin-top:10vh;">
         <h2>Register</h2>
         <form method="post" id="register-form">
             {% csrf_token %}
@@ -36,7 +36,8 @@
                 Submit
             </a>
         </form>
-
+        {% include 'registration/google_signin.html' %}
+        {% include 'registration/github_signin.html' %}
         <a href="{% url 'login' %}">Back to login</a></div>
 </section>
 <script>
