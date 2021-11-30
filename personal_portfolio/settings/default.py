@@ -157,7 +157,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
-
+DEFAULT_FROM_EMAIL = "productiveprogrammer.me@gmail.com"
+SERVER_EMAIL = "productiveprogrammer.me@gmail.com"
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
@@ -171,3 +172,5 @@ RECAPTCHA_PRIVATE_KEY = os.environ.get("RECAPTCHA_PRIVATE_KEY")
 
 GP_CLIENT_ID = os.environ.get("GP_CLIENT_ID")
 GP_CLIENT_SECRET = os.environ.get("GP_CLIENT_SECRET")
+
+ADMINS = [('Admin', 'christian.ransom123@gmail.com')]
